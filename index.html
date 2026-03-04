@@ -313,7 +313,118 @@ background:radial-gradient(circle at 20% 20%, rgba(10,132,255,0.05), transparent
 pointer-events:none;
 z-index:-1;
 }
+/* ========================= */
+/* 📱 DISEÑO PREMIUM MÓVIL */
+/* ========================= */
 
+@media(max-width:768px){
+
+/* HEADER */
+header{
+padding:12px 18px;
+}
+
+header h1{
+font-size:1rem;
+}
+
+nav{
+display:flex;
+gap:15px;
+}
+
+nav a{
+margin:0;
+font-size:0.9rem;
+}
+
+/* HERO */
+.hero{
+height:auto;
+padding:130px 20px 80px;
+}
+
+.hero h2{
+font-size:1.9rem;
+line-height:1.3;
+}
+
+.hero p{
+font-size:1rem;
+margin-top:10px;
+}
+
+/* GALERÍA */
+.gallery{
+padding:80px 20px;
+}
+
+.gallery h2{
+font-size:1.8rem;
+margin-bottom:35px;
+}
+
+.album-grid{
+grid-template-columns:1fr;
+gap:25px;
+}
+
+.album{
+border-radius:25px;
+}
+
+.album img{
+height:220px;
+}
+
+/* CONTACTO */
+.contact{
+padding:80px 20px;
+}
+
+.contact h2{
+font-size:1.8rem;
+}
+
+.contact input,
+.contact textarea{
+font-size:0.95rem;
+padding:14px;
+border-radius:16px;
+}
+
+.contact button{
+padding:14px;
+font-size:0.95rem;
+}
+
+/* UBICACIÓN */
+.ubicacion{
+padding:80px 20px;
+}
+
+.glass-card{
+padding:30px 20px;
+border-radius:25px;
+}
+
+.map-wrapper iframe{
+height:260px;
+}
+
+/* BOTÓN WHATSAPP */
+.whatsapp{
+width:55px;
+height:55px;
+bottom:20px;
+right:20px;
+}
+
+.whatsapp img{
+width:26px;
+}
+
+}
 </style>
 </head>
 <body>
