@@ -7,147 +7,169 @@
 
 <style>
 
-/* RESET */
+/* ================= RESET ================= */
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+html{
 scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(180deg,#0b1220 0%, #0f172a 50%, #0b1220 100%);
+background:linear-gradient(180deg,#0b1220 0%,#0f172a 50%,#0b1220 100%);
 color:#f5f7fa;
 overflow-x:hidden;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(25px);
-padding:15px 40px;
+background:rgba(255,255,255,0.92);
+backdrop-filter:blur(20px);
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:15px 25px;
 z-index:2000;
-border-bottom:1px solid rgba(0,0,0,0.05);
 box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 header h1{
-font-size:1.2rem;
-font-weight:600;
+font-size:1rem;
 color:#0f172a;
 }
 
-nav a{
-margin-left:25px;
+.nav-links{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.nav-links a{
 text-decoration:none;
 color:#475569;
 font-weight:500;
-transition:0.3s;
+transition:.3s;
 }
 
-nav a:hover{
+.nav-links a:hover{
 color:#0a84ff;
 }
 
-/* HERO */
+.call-btn{
+background:linear-gradient(135deg,#0a84ff,#0066cc);
+color:white !important;
+padding:8px 16px;
+border-radius:20px;
+font-size:0.85rem;
+}
+
+/* MENU TOGGLE */
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:5px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:25px;
+height:2px;
+background:#0f172a;
+transition:.4s;
+}
+
+/* ================= HERO ================= */
 .hero{
-height:100vh;
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
 background:#ffffff;
-padding-top:80px;
+padding:120px 20px 80px;
 }
 
 .hero h2{
-font-size:3rem;
-margin-bottom:20px;
+font-size:2rem;
 color:#0f172a;
+margin-bottom:15px;
+animation:fadeUp 1s ease forwards;
 }
 
 .hero p{
-font-size:1.2rem;
 color:#64748b;
+animation:fadeUp 1.3s ease forwards;
 }
 
-/* GALERÍA */
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* ================= GALERÍA ================= */
 .gallery{
-padding:120px 20px;
-text-align:center;
+padding:100px 20px;
 background:linear-gradient(180deg,#0f172a,#0b1220);
+text-align:center;
 }
 
 .gallery h2{
-font-size:2.5rem;
-margin-bottom:50px;
-color:#ffffff;
+color:white;
+margin-bottom:40px;
 }
 
 .album-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+grid-template-columns:1fr;
+gap:25px;
 max-width:1200px;
 margin:auto;
 }
 
 .album{
-position:relative;
+border-radius:25px;
 overflow:hidden;
-border-radius:30px;
-cursor:pointer;
 background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
 box-shadow:0 15px 35px rgba(0,0,0,0.4);
-transition:0.4s;
+transition:.4s;
 }
 
 .album:hover{
-transform:translateY(-6px);
-box-shadow:0 25px 45px rgba(0,0,0,0.6),
-0 0 25px rgba(10,132,255,0.3);
+transform:translateY(-5px);
+box-shadow:0 25px 45px rgba(0,0,0,0.6);
 }
 
 .album img{
 width:100%;
-height:280px;
+height:220px;
 object-fit:cover;
-transition:0.6s;
-}
-
-.album:hover img{
-transform:scale(1.08);
 }
 
 .album span{
-position:absolute;
-bottom:20px;
-left:20px;
+display:block;
+padding:15px;
 color:white;
-font-size:1.3rem;
 font-weight:600;
-text-shadow:0 4px 20px rgba(10,132,255,0.6);
 }
 
-/* CONTACTO */
+/* ================= CONTACTO ================= */
 .contact{
-padding:120px 20px;
+padding:100px 20px;
+background:white;
 text-align:center;
-background:#ffffff;
 }
 
 .contact h2{
 color:#0f172a;
-margin-bottom:40px;
+margin-bottom:30px;
 }
 
 .contact form{
@@ -155,287 +177,148 @@ max-width:600px;
 margin:auto;
 display:flex;
 flex-direction:column;
-gap:20px;
+gap:15px;
 }
 
 .contact input,
 .contact textarea{
-padding:16px;
-border-radius:18px;
+padding:14px;
+border-radius:15px;
 border:1px solid #e2e8f0;
-font-size:1rem;
 background:#f8fafc;
 }
 
 .contact button{
-padding:16px;
+padding:14px;
 border:none;
-border-radius:30px;
+border-radius:25px;
 background:linear-gradient(135deg,#0a84ff,#0066cc);
 color:white;
-font-weight:600;
 cursor:pointer;
-transition:0.3s;
-box-shadow:0 10px 25px rgba(10,132,255,0.3);
+transition:.3s;
 }
 
 .contact button:hover{
 transform:translateY(-3px);
-box-shadow:0 15px 35px rgba(10,132,255,0.5);
 }
 
-/* UBICACIÓN */
+/* ================= UBICACIÓN ================= */
 .ubicacion{
-padding:120px 20px;
-display:flex;
-justify-content:center;
+padding:100px 20px;
 background:linear-gradient(180deg,#0b1220,#0f172a);
+text-align:center;
 }
 
 .glass-card{
-width:100%;
-max-width:1100px;
-padding:50px 30px;
-border-radius:35px;
-background:rgba(255,255,255,0.07);
-backdrop-filter:blur(25px);
-border:1px solid rgba(255,255,255,0.1);
-box-shadow:0 30px 60px rgba(0,0,0,0.6);
-text-align:center;
-color:#ffffff;
-}
-
-.map-wrapper{
-position:relative;
-border-radius:25px;
-overflow:hidden;
-box-shadow:0 20px 40px rgba(0,0,0,0.5);
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
+background:rgba(255,255,255,0.08);
+border-radius:30px;
+backdrop-filter:blur(20px);
+color:white;
 }
 
 .map-wrapper iframe{
 width:100%;
-height:450px;
+height:250px;
 border:0;
+border-radius:20px;
+margin-top:20px;
 }
 
-.btn-directions{
-position:absolute;
-bottom:20px;
-right:20px;
-background:linear-gradient(135deg,#0a84ff,#0066cc);
-color:white;
-padding:12px 20px;
-border-radius:30px;
-text-decoration:none;
-font-weight:500;
-}
-
-/* WHATSAPP */
+/* ================= WHATSAPP ================= */
 .whatsapp{
 position:fixed;
-bottom:25px;
-right:25px;
-width:65px;
-height:65px;
-background:linear-gradient(145deg,#25D366,#128C7E);
+bottom:20px;
+right:20px;
+width:55px;
+height:55px;
+background:linear-gradient(145deg,#0a84ff,#0066cc);
 border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
 box-shadow:0 10px 30px rgba(10,132,255,0.4);
-z-index:4000;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-.hero{
-height:auto;
-padding:140px 20px 80px;
-}
-.hero h2{font-size:2rem;}
-.album img{height:220px;}
-.map-wrapper iframe{height:300px;}
-header{padding:15px 20px;}
-}
+/* ================= TABLET & DESKTOP ================= */
+@media(min-width:768px){
 
-/* ===== ANIMACIONES CORPORATIVAS ===== */
-
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:all 1s cubic-bezier(.2,.65,.3,1);
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-/* Hero animación inicial */
-.hero h2,
-.hero p{
-opacity:0;
-transform:translateY(30px);
-animation:fadeUp 1s ease forwards;
-}
-
-.hero p{
-animation-delay:0.3s;
-}
-
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* Hover premium más suave */
-.album{
-transition:all .5s cubic-bezier(.2,.65,.3,1);
-}
-
-.glass-card{
-transition:all .6s cubic-bezier(.2,.65,.3,1);
-}
-
-/* Micro profundidad */
-section{
-position:relative;
-z-index:1;
-}
-
-section::before{
-content:"";
-position:absolute;
-inset:0;
-background:radial-gradient(circle at 20% 20%, rgba(10,132,255,0.05), transparent 60%);
-pointer-events:none;
-z-index:-1;
-}
-/* ========================= */
-/* 📱 DISEÑO PREMIUM MÓVIL */
-/* ========================= */
-
-@media(max-width:768px){
-
-/* HEADER */
-header{
-padding:12px 18px;
-}
-
-header h1{
-font-size:1rem;
-}
-
-nav{
-display:flex;
-gap:15px;
-}
-
-nav a{
-margin:0;
-font-size:0.9rem;
-}
-
-/* HERO */
-.hero{
-height:auto;
-padding:130px 20px 80px;
-}
-
-.hero h2{
-font-size:1.9rem;
-line-height:1.3;
-}
-
-.hero p{
-font-size:1rem;
-margin-top:10px;
-}
-
-/* GALERÍA */
-.gallery{
-padding:80px 20px;
-}
-
-.gallery h2{
-font-size:1.8rem;
-margin-bottom:35px;
-}
+header h1{font-size:1.2rem;}
 
 .album-grid{
-grid-template-columns:1fr;
-gap:25px;
-}
-
-.album{
-border-radius:25px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 }
 
 .album img{
-height:220px;
-}
-
-/* CONTACTO */
-.contact{
-padding:80px 20px;
-}
-
-.contact h2{
-font-size:1.8rem;
-}
-
-.contact input,
-.contact textarea{
-font-size:0.95rem;
-padding:14px;
-border-radius:16px;
-}
-
-.contact button{
-padding:14px;
-font-size:0.95rem;
-}
-
-/* UBICACIÓN */
-.ubicacion{
-padding:80px 20px;
-}
-
-.glass-card{
-padding:30px 20px;
-border-radius:25px;
+height:280px;
 }
 
 .map-wrapper iframe{
-height:260px;
-}
-
-/* BOTÓN WHATSAPP */
-.whatsapp{
-width:55px;
-height:55px;
-bottom:20px;
-right:20px;
-}
-
-.whatsapp img{
-width:26px;
+height:450px;
 }
 
 }
+
+/* ================= MOBILE MENU ================= */
+@media(max-width:768px){
+
+.menu-toggle{
+display:flex;
+}
+
+.nav-links{
+position:fixed;
+top:0;
+right:-100%;
+width:75%;
+height:100vh;
+background:rgba(255,255,255,0.95);
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:30px;
+transition:.5s;
+}
+
+.nav-links.active{
+right:0;
+}
+
+.menu-toggle.active span:nth-child(1){
+transform:rotate(45deg) translateY(8px);
+}
+
+.menu-toggle.active span:nth-child(2){
+opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+transform:rotate(-45deg) translateY(-8px);
+}
+
+}
+
 </style>
 </head>
 <body>
 
 <header>
 <h1>Vidrios y Aluminios Dany</h1>
-<nav>
+
+<nav class="nav-links">
 <a href="#galeria">Galería</a>
 <a href="#contacto">Contacto</a>
 <a href="#ubicacion">Ubicación</a>
+<a href="tel:7227090014" class="call-btn">Llamar</a>
 </nav>
+
+<div class="menu-toggle" id="menuToggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
 </header>
 
 <section class="hero">
@@ -445,7 +328,6 @@ width:26px;
 
 <section id="galeria" class="gallery">
 <h2>Proyectos Realizados</h2>
-
 <div class="album-grid">
 <div class="album"><img src="img/canceles/1.jpg"><span>Canceles</span></div>
 <div class="album"><img src="img/ventanas/1.jpg"><span>Ventanas</span></div>
@@ -470,32 +352,57 @@ width:26px;
 <p>San Mateo Atenco, Estado de México</p>
 <div class="map-wrapper">
 <iframe src="https://www.google.com/maps?q=San%20Mateo%20Atenco&output=embed"></iframe>
-<a href="#" class="btn-directions">Cómo llegar</a>
 </div>
 </div>
 </section>
 
-<a href="#" class="whatsapp">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30">
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a href="https://wa.me/7227090014?text=Hola,%20me%20interesa%20una%20cotización"
+   class="whatsapp-float"
+   target="_blank">
+   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+     <path d="M20.52 3.48A11.87 11.87 0 0012.04 0C5.41 0 .06 5.35.06 11.98c0 2.11.55 4.17 1.59 6l-1.69 6.19 6.34-1.66a11.94 11.94 0 005.74 1.47h.01c6.63 0 11.98-5.35 11.98-11.98a11.9 11.9 0 00-3.51-8.52zM12.05 21.5h-.01a9.43 9.43 0 01-4.8-1.33l-.34-.2-3.76.99 1-3.66-.22-.38a9.43 9.43 0 01-1.44-5.02c0-5.2 4.24-9.43 9.45-9.43 2.52 0 4.88.98 6.66 2.76a9.36 9.36 0 012.77 6.67c0 5.2-4.24 9.44-9.45 9.44zm5.16-7.07c-.28-.14-1.66-.82-1.92-.91-.26-.09-.45-.14-.64.14-.19.28-.73.91-.9 1.09-.17.19-.33.21-.61.07-.28-.14-1.19-.44-2.26-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.17.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.47-.64-.48l-.55-.01c-.19 0-.5.07-.76.36-.26.28-1 1-1 2.43s1.03 2.81 1.17 3c.14.19 2.02 3.09 4.9 4.34.69.3 1.22.48 1.64.61.69.22 1.32.19 1.82.11.56-.08 1.66-.68 1.9-1.33.23-.64.23-1.19.16-1.33-.07-.14-.26-.21-.54-.35z"/>
+   </svg>
 </a>
+<style>
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+width:65px;
+height:65px;
+background:linear-gradient(145deg,#25D366,#128C7E);
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+cursor:pointer;
+transition:0.4s ease;
+animation:pulse 2s infinite;
+z-index:3000;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
+box-shadow:0 15px 35px rgba(0,0,0,0.35);
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6);}
+70%{box-shadow:0 0 0 15px rgba(37,211,102,0);}
+100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+</style>
 <script>
+const toggle=document.getElementById("menuToggle");
+const nav=document.querySelector(".nav-links");
 
-/* Animación al hacer scroll */
-const reveals = document.querySelectorAll(".gallery, .contact, .ubicacion");
-
-function revealOnScroll(){
-const windowHeight = window.innerHeight;
-reveals.forEach(section=>{
-const elementTop = section.getBoundingClientRect().top;
-if(elementTop < windowHeight - 100){
-section.classList.add("reveal","active");
-}
+toggle.addEventListener("click",()=>{
+toggle.classList.toggle("active");
+nav.classList.toggle("active");
 });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-
 </script>
+
 </body>
 </html>
